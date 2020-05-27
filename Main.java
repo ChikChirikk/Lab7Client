@@ -12,13 +12,13 @@ public class Main {//Client
     public static void main(String args[]) throws IOException, ClassNotFoundException {
         int clientPort = 313;
         int serverPort = 1257;
-//        if (args.length != 0) {
-//            try {
-//                clientPort = Integer.parseInt(args[0]);
-//            } catch (Exception e) {
-//                System.out.println("Неверно указан порт(целое положительное число, меньшее 65536).");
-//            }
-//            if (clientPort < 0) clientPort = Console.getClientPort();
+       if (args.length != 0) {
+           try {
+               clientPort = Integer.parseInt(args[0]);
+           } catch (Exception e) {
+               System.out.println("Неверно указан порт(целое положительное число, меньшее 65536).");
+           }
+           if (clientPort < 0) clientPort = Console.getClientPort();
         Commands commands = new Commands();
         commands.regist(new Help(), new Show(), new Remove_by_id(), new Remove_first(), new Remove_lower(), new Add(),
                 new Exit(), new Clear(), new Info(), new Update(), new Count_less_than_impact_speed(), new History(),
