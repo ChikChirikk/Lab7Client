@@ -94,24 +94,8 @@ public class App {
                         if (sender.isCommandWithObject())
                             if (receiver.receive().equals("newHuman")) {
                                 HashMap packedHuman = new HashMap();
-                                HumanBeing human = new HumanBeing();
-                                human.setCreationDate(LocalDate.now());
-                                human.setName(("name"));
-                                human.setHasToothpick(true);
-                                human.setRealHero(true);
-                                human.setImpactSpeed((double) 213);
-                                human.setSoundtrackName(("soundtrackName"));
-                                human.setMinutesOfWaiting((double) 234234);
-                                HumanBeing.Car car = human.new Car();
-                                car.setCarName(("carName"));
-                                car.setCarCool(true);
-                                human.setCar(car);
-                                HumanBeing.Coordinates coords = human.new Coordinates();
-                                coords.setX(123);
-                                coords.setY(234);
-                                human.setCoordinates(coords);
-                                human.setWeaponType(HumanBeing.WeaponType.valueOf("KNIFE"));
-                                packedHuman.put("human", human);
+                                HumanBeing human = new HumanBeing();            
+                                packedHuman.put("human", creater.create());
                                 packedHuman.put("commandName", command.getCommand().getName());
                                 packedHuman.put("portLoginAndPassword", loginAndPassword);
                                 sender.send(packedHuman);
